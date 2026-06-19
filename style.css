@@ -6,11 +6,9 @@
   background-color: #fff;
   font-family: Montserrat, sans-serif;
   color: #515076;
-  margin: 0;
+  margin: auto;
   padding: 0;
-  width: 1280px;
-  height: 1715px;
-  
+  justify-content: center;
 }
 
 
