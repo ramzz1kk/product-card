@@ -1,12 +1,12 @@
 // 1
-function tempImSity (temp = "X", city = "Y") {
+function outputMessage (temp = "X", city = "Y") {
   console.log (`Температура в городе ${city} составляет ${temp} градусов`);
 }
-tempImSity ();
+outputMessage ();
 
 // 2
 const SPEED_OF_LIGHT = (299792458);
-function  speedСomparison (speed) {
+function compareSpeed (speed) {
   if (speed > SPEED_OF_LIGHT) {
     console.log ("Сверхсветовая скорость")
   }
@@ -17,14 +17,14 @@ function  speedСomparison (speed) {
     console.log ("Субсветовая скорость")
   }
 }
-speedСomparison (299792458);
+compareSpeed (299792458);
 
 // 3
 
 const productName = "Iphone";
 const productPrice = 1000;
 
-function budget(currentBudget) {
+function compareBudget (currentBudget) {
   if (currentBudget >= productPrice) {
     console.log(`${productName} приобретен. Спасибо за покупку!`);
   } else {
@@ -35,10 +35,10 @@ function budget(currentBudget) {
   }
 }
 
-budget(1500);
+compareBudget (1500);
 
 // 4
-function productInfo() {
+function outputConsoleLog () {
 }
 
 // 5
