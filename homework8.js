@@ -23,41 +23,42 @@ console.log (car)
 
 function checkMaxSpeed (car) {
   if (!("maxSpeed" in car)) {
-    car["maxSpeed"] = 250;
+  car["maxSpeed"] = 250;
   }
 }
 
 checkMaxSpeed (car)
 
-function showProperty (user, name) {
-console.log (user [name]);
+function showPropertyObject (user, name) {
+  console.log (user [name]);
 }
-showProperty (user, "name")
+  showPropertyObject (user, "name")
 
 const fructs = ["Дыня", "Арбуз", "Гранат", "Апельсин"]
 
 
-const w210 = {
-  Year: 2002,
-  color: "black",
-  transmission: "automatic"
+const cars = [ 
+  w210 = {
+    Year: 2002,
+    color: "black",
+    transmission: "automatic"
+  },
+  camry = {
+    Year: 1982,
+    color: "white",
+    transmission: "automatic"
+  },
+  k5 = {
+    Year: 2010,
+    color: "green",
+    transmission: "automatic"
+  },
+  morning = {
+    Year: 2004,
+    color: "orange",
+    transmission: "automatic"
   }
-const camry = {
-  Year: 1982,
-  color: "white",
-  transmission: "automatic"
-  }
-const k5 = {
-  Year: 2010,
-  color: "green",
-  transmission: "automatic"
-  }
-const morning = {
-  Year: 2004,
-  color: "orange",
-  transmission: "automatic"
-  }
-const cars = [w210, camry, k5, morning];
+];
 
 const sequoia = {
   Year: 2000,
@@ -80,11 +81,11 @@ const corolla = {
   transmission: "mechanical"
 }
 
-const ToyataCars = [camry, sequoia, prius, corolla];
+const toyataCars = [camry, sequoia, prius, corolla];
 
-const allCars = [...cars, ...ToyataCars];
+const allCars = [...cars, ...toyataCars];
 
-function SortByYear (allCars) {
+function sortByYear (allCars) {
   return allCars.map((car) => {
     return {
       ...car,
@@ -93,6 +94,6 @@ function SortByYear (allCars) {
   });
 };
 
-const result = SortByYear(allCars);
+const result = sortByYear(allCars);
 
 console.log (result)
