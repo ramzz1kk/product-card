@@ -38,22 +38,26 @@ const fructs = ["Дыня", "Арбуз", "Гранат", "Апельсин"]
 
 
 const cars = [ 
-  w210 = {
+  {
+    carName: "w210",
     Year: 2002,
     color: "black",
     transmission: "automatic"
   },
-  camry = {
+  {
+    carName: "camry",
     Year: 1982,
     color: "white",
     transmission: "automatic"
   },
-  k5 = {
+  {
+    carName: "k5",
     Year: 2010,
     color: "green",
     transmission: "automatic"
   },
-  morning = {
+  {
+    carName: "morning",
     Year: 2004,
     color: "orange",
     transmission: "automatic"
@@ -61,6 +65,7 @@ const cars = [
 ];
 
 const sequoia = {
+  carName: "sequoia",
   Year: 2000,
   color: "blue",
   transmission: "automatic"
@@ -81,7 +86,7 @@ const corolla = {
   transmission: "mechanical"
 }
 
-const toyataCars = [camry, sequoia, prius, corolla];
+const toyataCars = [sequoia, prius, corolla];
 
 const allCars = [...cars, ...toyataCars];
 
