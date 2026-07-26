@@ -37,8 +37,7 @@ const count = getCardCount();
 
 const cards = productCards.slice(0, count);
 
-const productsDescription = productCards.reduce(
-  (acc, product) => [
+const productsDescription = productCards.reduce((acc, product) => [
     ...acc,
     {
       [product.cardName]: product.cardDescription,
