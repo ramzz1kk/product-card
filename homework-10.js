@@ -42,8 +42,6 @@ const productsDescription = productCards.reduce((acc, product) => [
     {
       [product.cardName]: product.cardDescription,
     },
-  ],
-  [],
-);
+  ], [],);
 
 renderCards(cards);
