@@ -14,18 +14,21 @@
     />
   </head>
   <body>
-    <button class="change-yellow-color-btn">Сменить цвет карточки</button>
-    <button class="change-green-all-items-btn">
-      Сменить цвет всех карточек
-    </button>
-    <button class="open-google-btn">Открыть Google</button>
-    <button class="output-console-log-btn">
-      Отправить сообщение в консоль
-    </button>
-    <button class="change-color-btn">Меняющая свой цвет кнопка</button>
-
+    <div class="btns">
+      <button class="change-yellow-color-btn">Сменить цвет карточки</button>
+      <button class="change-green-all-items-btn">
+        Сменить цвет всех карточек
+      </button>
+      <button class="open-google-btn">Открыть Google</button>
+      <button class="output-console-log-btn">
+        Отправить сообщение в консоль
+      </button>
+      <button class="change-color-btn">Меняющая свой цвет кнопка</button>
+      <button class="registration-form-btn">Регистрация</button>
+    </div>
     <main class="catalog">
-      <div class="container">
+      <div class="container catalog__container">
+        <h1 class="catalog__title title">Выбери свой продукт</h1>
         <ul class="products clear-list"></ul>
         <template id="product-card-template">
           <li class="products__item card">
@@ -47,9 +50,110 @@
         </template>
       </div>
     </main>
-
+    <div class="modal">
+      <div class="modal-content">
+        <span class="close-modal-btn">&times;</span>
+        <form class="registration-form">
+          <input
+            id="user-name"
+            name="user-name"
+            type="text"
+            placeholder="Введите Имя..."
+            minlength="4"
+            required
+          />
+          <input
+            id="user-surname"
+            name="user-surname"
+            type="text"
+            placeholder="Введите Фамилию..."
+            minlength="4"
+            required
+          />
+          <input
+            id="user-birthday"
+            name="user-birthday"
+            type="date"
+            placeholder="Введите дату рождения..."
+            required
+          />
+          <input
+            id="user-login"
+            name="user-login"
+            type="text"
+            placeholder="Введите логин..."
+            minlength="4"
+            required
+          />
+          <input
+            id="user-password"
+            name="user-password"
+            type="password"
+            placeholder="Введите пароль..."
+            minlength="8"
+            required
+          />
+          <input
+            id="confirm-password"
+            name="confirm-password"
+            type="password"
+            placeholder="Подтвердите пароль..."
+            minlength="8"
+            required
+          />
+          <button type="submit" class="registration-btn"> Зарегистрироваться </button>
+        </form>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__company company">
+        <h2 class="company__name">Product Cards</h2>
+        <p class="company__slogan">У Нас Самые Лучшие Продукты Для Кожи!</p>
+        <div class="icons">
+          <img class="company__tg-icon" src="img/telegram-icon.png" />
+          <img class="company__wk-icon" src="img/wk-icon.png" />
+        </div>
+      </div>
+      <div class="input-menu">
+        <form class="form" id="email-form">
+          <label for="user-email" class="label-text"> Подпишись на наши акции:</label>
+          <div class="input-email">
+            <input
+              id="user-email"
+              name="user-email"
+              type="email"
+              placeholder="Введите Email..."
+            />
+            <button type="submit" class="subscribe-button">Подписаться</button>
+          </div>
+        </form>
+        <div class="website-link">
+          <div class="upline"></div>
+          <p class="footer-link">www.product-cards.com©all right reserve</p>
+        </div>
+      </div>
+      <div class="fast-links">
+        <nav>
+          <h3 class="titel-fast-links">Быстрые ссылки</h3>
+          <ul class="clear-list">
+            <li>
+              <a href="#">Главная</a>
+            </li>
+            <li>
+              <a href="#">Магазин</a>
+            </li>
+            <li>
+              <a href="#">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+    <script src="main.js"></script>
     <script type="module" src="comments.js"></script>
     <script type="module" src="homework-10.js"></script>
+    <script src="homework-11.js"></script>
+    <script type="module" src="homework-9.js"></script>
     <script src="homework8.js"></script>
     <script src="homework7.js"></script>
   </body>
