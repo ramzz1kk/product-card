@@ -33,6 +33,34 @@ function showError() {
     "Ошибка при загрузке данных";
 }
 
+async function getUsers() {
+  try {
+    document.getElementById("loading").textContent =
+      "Данные загружаются";
+
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
+    const response = await fetch("users.json");
+
+    if (!response.ok) {
+      throw new Error("Ошибка при загрузке данных");
+    }
+
+    const data = await response.json();
+
+    localStorage.setItem("users", JSON.stringify(data.users));
+
+    document.getElementById("loading").textContent = "";
+
+    return data.users;
+  } catch (error) {
+    console.error(error);
+    showError();
+
+    return [];
+  }
+}
+
 if (usersLocalData) {
   console.log("Данные есть");
 
@@ -42,31 +70,11 @@ if (usersLocalData) {
 } else {
   console.log("Данных нет");
 
-  document.getElementById("loading").textContent =
-    "Данные загружаются";
-
-  setTimeout(() => {
-    fetch("users.json")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Ошибка при загрузке данных");
-        }
-
-        return response.json();
-      })
-      .then((data) => {
-        localStorage.setItem("users", JSON.stringify(data.users));
-
-        document.getElementById("loading").textContent = "";
-
-        renderUsers(data.users);
-      })
-      .catch((error) => {
-        console.error(error);
-
-        showError();
-      });
-  }, 2000);
+  getUsers().then((users) => {
+    if (users.length > 0) {
+      renderUsers(users);
+    }
+  });
 }
 
 const deleteAllButton = document.getElementById("delete-all");
@@ -79,7 +87,7 @@ deleteAllButton.addEventListener("click", () => {
 
 const getAllButton = document.getElementById("get-all");
 
-getAllButton.addEventListener("click", () => {
+getAllButton.addEventListener("click", async () => {
   const usersLocalData = localStorage.getItem("users");
 
   if (usersLocalData) {
@@ -88,26 +96,11 @@ getAllButton.addEventListener("click", () => {
     const cardsCount = document.querySelectorAll(".card").length;
 
     if (users.length === 0) {
-      setTimeout(() => {
-        fetch("users.json")
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Ошибка при загрузке данных");
-            }
+      const newUsers = await getUsers();
 
-            return response.json();
-          })
-          .then((data) => {
-            localStorage.setItem("users", JSON.stringify(data.users));
-
-            renderUsers(data.users);
-          })
-          .catch((error) => {
-            console.error(error);
-
-            showError();
-          });
-      }, 2000);
+      if (newUsers.length > 0) {
+        renderUsers(newUsers);
+      }
     } else if (cardsCount === users.length) {
       document.getElementById("loading").textContent =
         "Все пользователи уже отображены";
@@ -115,28 +108,10 @@ getAllButton.addEventListener("click", () => {
       renderUsers(users);
     }
   } else {
-    setTimeout(() => {
-      fetch("users.json")
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Ошибка при загрузке данных");
-          }
+    const users = await getUsers();
 
-          return response.json();
-        })
-        .then((data) => {
-          localStorage.setItem(
-            "users",
-            JSON.stringify(data.users)
-          );
-
-          renderUsers(data.users);
-        })
-        .catch((error) => {
-          console.error(error);
-
-          showError();
-        });
-    }, 2000);
+    if (users.length > 0) {
+      renderUsers(users);
+    }
   }
 });
